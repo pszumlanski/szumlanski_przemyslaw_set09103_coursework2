@@ -1,0 +1,95 @@
+<html>
+<head>
+  <title>Sign Up</title>
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static', filename='css/styles.css') }}" />
+  <style>
+    body{ 
+      padding-top: 50px;
+      background-color: #3374ff;
+    } 
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed"
+      data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+      aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href='/'>QuickJobs</a>
+    </div>
+  </div>
+  </nav>
+
+<div class="container">
+  <div id="signupbox" style="margin-top:50px" class="mainbox col-md-6
+    col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <div class="panel-title">Sign Up</div>
+        <div style="float:right; font-size:85%; position:relative; top:-10px">
+          <a id="signinlink" href='/login'>Log In</a>
+        </div>
+      </div>
+      <div class="panel-body">
+        <form id="signupform" method="post" enctype="multipart/form-data"
+          class="form-horizontal" role="form">
+          <div id="signupalert" style="display:none" class="alert
+          alert-danger">
+            <p>Error:</p>
+            <span></span>
+          </div>
+          <div class="form-group">
+            <label for="email" class="col-md-3 control-label">Email</label>
+            <div class="col-md-9">
+              <input type="email" class="form-control" name="email"
+              placeholder="Email Address" id="email" required="true">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="firstname" class="col-md-3 control-label">First
+              Name</label>
+            <div class="col-md-9">
+              <input type="text" class="form-control" name="firstname"
+              placeholder="First Name" id="firstname" required="true">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="lastname" class="col-md-3 control-label">Last
+              Name</label>
+            <div class="col-md-9">
+              <input type="text" class="form-control" name="lastname"
+                placeholder="Last Name" id="lastname" required="true">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password" class="col-md-3 control-label">
+              Password</label>
+            <div class="col-md-9">
+              <input type="password" class="form-control" name="password"
+                placeholder="Password" id="password" required="true">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-offset-3 col-md-9">
+              <button id="btn-signup" type="submit" class="btn btn-info"<i
+              class="icon-hand-right"></i>Sign Up</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src={{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<html>
+<head>
+  <title>QuickJobs</title>
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static', filename='css/styles.css') }}" />
+  <style>
+    body{ 
+      padding-top: 50px;
+      background-color: #3374ff;
+    } 
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed"
+      data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+      aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href='/'>QuickJobs</a>
+    </div>
+      {% if loggedinuser == [] %}
+      <ul class="nav navbar-nav navbar-right">
+        <a href="/login"><button type="submit" class="btn navbar-btn btn-sm btn-primary"
+          name="login" value="login" 
+            style="margin-right: 20px;">Sign In</button></a>
+        <a href="/login/"><button type="submit" class="btn navbar-btn
+          btn-danger" name="newoffer" value="newoffer"
+            style="margin-right: 30px;">Post an offer</button></a>
+      </ul>
+      {% else %}
+      <ul class="nav navbar-nav navbar-right">
+        <p class="navbar-text">Welcome {{ loggedinuser[1] }} !</p>
+        <a href="/logout/"><button type="submit" class="btn navbar-btn btn-sm
+          btn-primary" name="logout" value="logout"
+            style="margin-right: 20px;">Logout</button></a>
+        <a href="/newoffer/"><button method="post" type="submit" class="btn navbar-btn
+          btn-danger" name="newoffer" value="newoffer"
+            style="margin-right: 30px;">Post an offer</button></a>
+      </ul>
+      {% endif %}
+    </div>
+  </div>
+  </nav>
+
+  <div class="container" style="margin-top: 40px;">
+    {% for offers in alloffers %}
+      <div class="row" style="margin-top: 20px;">
+        <div class="col-md-6 col-md-offset-3" 
+          style="border: 2px outset black; background-color: white;
+            border-radius: 25px;">
+          <p style="text-align: right; margin-top: 5px">
+            Posted by: {{ offers[5] }}</p>
+          <h3>{{ offers[0] }} </h2>
+          <p style="font-style: italic;">Location: {{ offers[1] }} </p>
+          <p >Description: {{ offers[4] }} </p>
+          <h4 style="text-align: right">Salary: {{offers[2] }} </h4>
+          <p style="text-align: right">Contact number: {{ offers[3] }} </p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src={{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+</html>

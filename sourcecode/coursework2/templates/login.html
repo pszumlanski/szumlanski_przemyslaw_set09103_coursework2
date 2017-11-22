@@ -1,0 +1,80 @@
+<html>
+<head>
+  <title>Login</title>
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static', filename='css/styles.css') }}" />
+  <style>
+    body{ 
+      padding-top: 50px;
+      background-color: #3374ff;
+    } 
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed"
+      data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+      aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href='/'>QuickJobs</a>
+    </div>
+  </div>
+  </nav>
+
+<div class="container">
+  <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6
+  col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <div class="panel-title">Sign In</div>
+      </div>
+      <div style="padding-top:30px;" class="panel-body">
+        <div style="display: none" id="login-alert" class="alert alert-danger
+        col-sm-12"></div>
+
+        <form id="loginform" method="post" enctype="multipart/form-data"
+          class="form-horizontal" role="form">
+          <div style="margin-bottom: 25px" class="input-group">
+            <span class="input-group-addon"><i class="glyphicon
+            glyphicon-user"></i></span>
+            <input id="email" type="email" class="form-control"
+            placeholder="Email" name="email" required="true">
+          </div>
+          <div style="margin-bottom:25px" class="input-group">
+            <span class="input-group-addon"><i class="glyphicon
+            glyphicon-lock"></i></span>
+            <input id="password" type="password" class="form-control"
+            name="password" placeholder="Password" required="true">
+          </div>
+          <div style="margin-top:10px" class="form-group">
+            <div class="col-sm-12 controls">
+              <button id="btn-login" type="submit" class="btn
+                btn-success">Login</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-12 control">
+              <div style="border-top: 1px solid#888; padding-top:15px;
+                font-size:85%" >
+                  Don't have an account?
+                  <a href='/signup'>Sign Up Here</a>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src={{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<html>
+<head>
+  <title>Add new job offer</title>
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static', filename='css/styles.css') }}" />
+  <style>
+    body{ 
+      padding-top: 100px;
+      background-color: #3374ff;
+    } 
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed"
+      data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+      aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href='/'>QuickJobs</a>
+    </div>
+      <ul class="nav navbar-nav navbar-right">
+          <p class="navbar-text">Welcome {{ currentuser[1] }} !</p>
+          <a href="/logout"><button type="submit" class="btn navbar-btn btn-sm btn-primary"
+            name="logout" value="logout" 
+              style="margin-right: 20px;">Logout</button></a>
+      </ul>
+    </div>
+  </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="well well-sm">
+          <form class="form-horizontal" action="" method="post">
+          <fieldset>
+            <legend class="text-center">Post a job offer</legend>
+
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="title">
+                Your Ad title:</label>
+              <div class="col-md-9">
+                <input id="title" name="title" type="text"
+                  placeholder="Ad title" class="form-control" required="true">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="location">
+                Job Location:</label>
+              <div class="col-md-9">
+                <input id="location" name="location" type="text"
+                  placeholder="Location" class="form-control" required="true">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="pay">
+                Salary:</label>
+              <div class="col-md-9">
+                <input id="pay" name="pay" type="int" placeholder="0.00"
+                  class="form-control" required="true">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-3 control-label" for"contact">
+                Contact:</label>
+              <div class="col-md-9">
+                <input id="contact" name="contact" type="text"
+                  placeholder="Your contact info" class="form-control"
+                  required="true">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-3 control-label" for"desc">
+                Job description:</label>
+              <div class="col-md-9">
+                <textarea class="form-control" id="desc" name="desc"
+                  placeholder="Describe the job here..." rows="5"
+                    required="true"></textarea>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-primary btn-lg">
+                  Post a job offer</button>
+              </div>
+            </div>
+          </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src={{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+</html>
